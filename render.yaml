@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: natours
+    env: node
+    plan: free
+    buildCommand: ""
+    startCommand: npm run start:prod
+    branch: main
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000  # Render автоматично ставить власний порт, але можеш вказати символічно
+      - key: DATABASE
+        sync: false
+      - key: DATABASE_LOCAL
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 90d
+      - key: JWT_COOKIE_EXPIRES_IN
+        value: 90
+      - key: EMAIL_USERNAME
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: EMAIL_HOST
+        value: sandbox.smtp.mailtrap.io
+      - key: EMAIL_PORT
+        value: "2525"
